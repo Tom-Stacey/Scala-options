@@ -36,7 +36,7 @@ object OptionHandlingService {
 
   def getTailLength(opt: Option[Animal]): Option[Int] = opt.flatMap(_.tailLength)
 
-  def tailAsStringOrDefault(opt: Option[Animal]): String = ???
+  def tailAsStringOrDefault(opt: Option[Animal]): String = opt.flatMap(_.tailLength.map(_.toString)).getOrElse("No Tail")
 
   def getFriendsTails(opt: Option[Animal]): Seq[Int] = opt.map(_.friends.flatMap(_.tailLength)).getOrElse(Seq.empty)
 
