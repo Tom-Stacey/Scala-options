@@ -170,6 +170,20 @@ class OptionHandlingServiceSpec extends WordSpec with Matchers {
     }
   }
 
+  "tailAsStringOrDefault" should {
+    "return the tail length as a string if the animal has a tail" in {
+      val testAnimal = Animal("Bruce 'Crocodile' Outback", "kangaroo", Some(40))
+      OptionHandlingService.tailAsStringOrDefault(Some(testAnimal)) shouldBe "40"
+    }
+    """return "No Tail" if the animal has no tail""" in {
+      val testAnimal = Animal("Legsy McGee", "octopus", None)
+      OptionHandlingService.tailAsStringOrDefault(Some(testAnimal)) shouldBe "No Tail"
+    }
+    """return "No Tail" if the animal Option is not defined""" in {
+      OptionHandlingService.tailAsStringOrDefault(None) shouldBe "No Tail"
+    }
+  }
+
   "getFriendsTails" should {
     val jeremy = Animal("Jeremy", "badger", Some(4))
     val jemima = Animal("Jemima", "orangutan", None)

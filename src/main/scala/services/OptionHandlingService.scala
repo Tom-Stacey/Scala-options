@@ -28,6 +28,8 @@ object OptionHandlingService {
 
   def getTailLength(opt: Option[Animal]): Option[Int] = ???
 
+  def tailAsStringOrDefault(opt: Option[Animal]): String = ???
+
   def getFriendsTails(opt: Option[Animal]): Seq[Int] = ???
 
 }
