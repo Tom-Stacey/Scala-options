@@ -1,4 +1,4 @@
-name := "guess-who"
+name := "options"
 
 version := "1.0"
 
